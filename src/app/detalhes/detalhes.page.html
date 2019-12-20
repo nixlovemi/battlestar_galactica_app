@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button class="menu-toolbar-default"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{vTitulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-searchbar (ionChange)="filterList($event)" placeholder="Filtrar"></ion-searchbar>
+
+  <ion-item *ngFor="let i of vArrCards">
+    <ion-label (click)="viewCard(i.path_img, i.nome)">
+      <h2>{{i.nome}}</h2>
+      <p>{{i.nome_eng}}</p>
+      <p *ngIf="i.subtipo!=''">{{i.subtipo}}</p>
+    </ion-label>
+    <ion-icon slot="end" name="md-eye" (click)="viewCard(i.path_img, i.nome)"></ion-icon>
+    <!-- arrow-forward -->
+  </ion-item>
+</ion-content>
